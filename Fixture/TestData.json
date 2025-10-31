@@ -1,0 +1,55 @@
+{
+    "testdata" : [
+        {
+            "index" : 0,
+            "testdataID" : "01",
+            "firstNameValue" : "Ashutosh",
+            "lastNameValue" : "More",
+            "emailValue" : "more@gmail.com",
+            "commentValue" : "This is the trial",
+            "errorMSG" : "Error: all fields are required"
+        }
+        
+    ],
+    "testdata1Drowpdown" : [
+        {
+            "index" : 0,
+            "testdataID" : "02",
+            "Value1" : "JAVA",
+            "Value2" : "C#",
+            "Value3" : "python",
+            "Value4" : "SQL"
+
+        },
+        {
+            "index" : 1,
+            "testdataID" : "02",
+            "Value1" : "Eclipse",
+            "Value2" : "Maven",
+            "Value3" : "TestNG",
+            "Value4" : "JUnit"
+        },
+        {
+            "index" : 2,
+            "testdataID" : "02",
+            "Value1" : "HTML",
+            "Value2" : "CSS",
+            "Value3" : "javascript",
+            "Value4" : "JQuery"
+        }
+    ],
+    "testdata1radiobutton" : [
+        {
+            "buttton1" : "green",
+            "buttton2" : "blue",
+            "buttton3" : "yellow",
+            "buttton4" : "orange",
+            "buttton5" : "purple"
+        },
+        {
+            "buttton1" : "lettuce",
+            "buttton2" : "cabbage",
+            "buttton3" : "pumpkin"
+        }
+    ]
+}
