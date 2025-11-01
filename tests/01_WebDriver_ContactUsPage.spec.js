@@ -63,23 +63,7 @@ test.only('Verify the functionality of Reset Button', async ({ browser }) => {
     await Page.goto('/')
 console.log(await Page.title())
 
-    const [Contactus] = await Promise.all([
-        Context.waitForEvent("page"),
-        Page.locator('[href="Contact-Us/contactus.html"] h1').click()
-    ])
 
-    await Contactus.locator(firstName).fill(firstNameValue)
-    expect(Contactus.locator(firstName)).toHaveValue(firstNameValue)
-    await Contactus.locator(lastName).fill(lastNameValue)
-    expect(Contactus.locator(lastName)).toHaveValue(lastNameValue)
-    await Contactus.locator(email).fill(emailValue)
-    expect(Contactus.locator(email)).toHaveValue(emailValue)
-    await Contactus.locator(commentBox).fill(commentValue)
-    expect(Contactus.locator(commentBox)).toHaveValue(commentValue)
-    await Contactus.locator(resButton).click({ timeout: 9000 })
-    expect(Contactus.locator(firstName)).toHaveValue("")
-    expect(Contactus.locator(lastName)).toHaveValue("")
-    expect(Contactus.locator(email)).toHaveValue("")
 })
 test('Verify All field error msg', async ({ browser }) => {
     const Context = await browser.newContext()

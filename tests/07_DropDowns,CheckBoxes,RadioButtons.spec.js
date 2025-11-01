@@ -108,17 +108,3 @@ test("verify the disabled Radio Button", async({browser}) =>{
     await radioButtonsDisabled.checkNotSelectedButton1(page,data.testdata1radiobutton[1].buttton3)
   
 })
-
-page.on("dialog",async(simplealer) =>{
-    await simplealer.message()
-    await simplealer.accept()
-
-})
-// file upload
-page.locator("b b").setInpuFile()
-
-// file download
-let downloadpeomise = page.waitfoEvent("download")
-
-
-// multitabs
