@@ -100,6 +100,6 @@ test('SOAP POST request and validate response', async () => {
   
     // Simple content check: verify that the response contains expected tag
     // expect(respText).toContain('<ListOfContinentsByNameResult');
-  
-    // Further XML parsing / validation could be done if needed
+  //
+    // Further XML parsing // validation could be done if needed
   });
