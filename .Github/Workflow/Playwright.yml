@@ -6,19 +6,16 @@ on:
   pull_request:
     branches: [ master ]
 
-permissions:
-  contents: write   # Required for GitHub Pages
-
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout code
+      # Step 1: Checkout your code
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Step 2: Setup Node.js
+      # Step 2: Setup Node
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -28,27 +25,28 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # Step 4: Install Playwright browsers
-      - name: Install Playwright browsers
-        run: npx playwright install --with-deps
-
-      # Step 5: Run Playwright tests
+      # Step 4: Run Playwright tests and generate HTML report
       - name: Run Playwright tests
         run: npx playwright test --reporter=html
 
-      # Step 6: Upload HTML report as artifact (optional backup)
-      - name: Upload report artifact
+      # Step 5: Upload the HTML report as artifact for Pages
+      - name: Upload Playwright report artifact
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: playwright-report
           path: playwright-report/
 
-      # Step 7: Deploy Playwright report to GitHub Pages
-      - name: Deploy report to GitHub Pages
-        if: always()
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./playwright-report
-          destination_dir: playwright-report
+  # Step 6: Deploy report to GitHub Pages
+  deploy:
+    needs: test
+    permissions:
+      pages: write        # allow writing to GitHub Pages
+      id-token: write     # required for deployment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
