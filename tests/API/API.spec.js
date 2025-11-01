@@ -97,9 +97,9 @@ test('SOAP POST request and validate response', async () => {
     // Get response text
     const respText = await response.text();
     console.log('SOAP response:', respText);
-  
+  ///
     // Simple content check: verify that the response contains expected tag
-    // expect(respText).toContain('<ListOfContinentsByNameResult');
+    // //expect(respText).toContain('<ListOfContinentsByNameResult');
   //
     // Further XML parsing // validation could be done if needed
   });
