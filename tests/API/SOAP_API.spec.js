@@ -32,9 +32,9 @@ test('SOAP POST to Beeceptor mock and validate XML response', async ({ request }
   const respText = await response.text();
   console.log('SOAP Response:', respText);
 
-  // Basic string validations
-//   expect(respText).toContain('<soap:Envelope');
-//   expect(respText).toContain('<soap:Body>');
+  // Basic string validations//
+//   expect(respText).toContain('<soap:Envelope');//
+//   expect(respText).toContain('<soap:Body>');//
 //   expect(respText).toContain('<ListOfContinentsByNameResponse')
 
   // Parse XML and perform structured assertions
