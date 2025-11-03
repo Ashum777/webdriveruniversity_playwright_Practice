@@ -42,11 +42,11 @@ test('SOAP POST to Beeceptor mock and validate XML response', async ({ request }
   console.log(parsed);
   
 //   const envelope = parsed['soap:Envelope'];
-//   expect(envelope).toBeDefined();
+//   expect(envelope).toBeDefined();//
 //   const body = envelope['soap:Body'];
 //   expect(body).toBeDefined();
 //   const opResponse = body['ListOfContinentsByNameResponse'];
-//   expect(opResponse).toBeDefined();
+//   expect(opResponse).toBeDefined();///
 //   const result = opResponse['ListOfContinentsByNameResult'];
 //   expect(result).toBeDefined();
 
