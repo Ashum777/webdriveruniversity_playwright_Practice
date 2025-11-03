@@ -30,14 +30,19 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
+      # ✅ Generate report
       - name: Run Playwright tests
         run: npx playwright test --reporter=html
 
-      - name: List report files (debug)
+      # ✅ Verify report exists
+      - name: Check report folder
         if: always()
-        run: ls -R playwright-report || echo "⚠️ No report found!"
+        run: |
+          echo "📁 Listing Playwright report folder..."
+          ls -R playwright-report || echo "⚠️ playwright-report folder not found!"
 
-      - name: Upload report artifact
+      # ✅ Upload report to Pages
+      - name: Upload Playwright report artifact
         if: always()
         uses: actions/upload-pages-artifact@v3
         with:
