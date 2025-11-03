@@ -27,7 +27,10 @@ jobs:
 
       # Step 4: Run Playwright tests and generate HTML report
       - name: Run Playwright tests
-        run: npx playwright test --reporter=html
+        run: |
+        npx playwright install --with-deps
+        npx playwright test --reporter=html
+
               # Step 5: Verify report folder before upload
       - name: Check report folder
         if: always()
